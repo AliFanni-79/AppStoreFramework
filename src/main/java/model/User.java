@@ -11,7 +11,6 @@ public class User {
     private String userId;
     private String username;
     private String email;
-    private String password; // Hashed and salted for security
+    private String password;
 
-    // Constructors, getters, setters, and additional methods
 }
