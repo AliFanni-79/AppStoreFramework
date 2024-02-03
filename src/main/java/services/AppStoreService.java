@@ -1,5 +1,6 @@
 package services;
 
+import lombok.AllArgsConstructor;
 import model.App;
 import model.Review;
 import model.User;
@@ -8,42 +9,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@AllArgsConstructor
 public class AppStoreService {
-    private final List<App> appList;
-    private final Map<String, User> userMap;
-    private final Map<String, List<Review>> appReviews;
-
-    public AppStoreService(List<App> appList, Map<String, User> userMap, Map<String, List<Review>> appReviews) {
-        this.appList = appList;
-        this.userMap = userMap;
-        this.appReviews = appReviews;
-    }
-
-    public AppStoreService() {
-        this.appList = new ArrayList<>();
-        this.userMap = new HashMap<>();
-        this.appReviews = new HashMap<>();
-    }
 
     public void createServer() {
         new Thread(ConnectionService::new);
     }
 
     public boolean addApp(App app) {
-        if (!appList.contains(app)) {
-            appList.add(app);
+        if (!appList.containsKey(app.getAppId())) {
+            appList.put(app.getAppId(), app);
             return true;
         }
         return false;
     }
 
     public boolean updateApp(App app) {
-        if (appList.contains(app)) {
-            appList.add(app);
+        if (appList.containsKey(app.getAppId())) {
+            appList.put(app.getAppId(), app);
             return true;
         }
         return false;
+    }
+
+    public void addReview(String appId, String userId, int rating, String comment) {
+
     }
 
     public boolean RegisterUser(String name, User user) {

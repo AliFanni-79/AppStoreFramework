@@ -1,14 +1,17 @@
 package model;
 
-import java.util.List;
+import lombok.*;
 
+import java.util.List;
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class App {
-    private String appId;
-    private String appName;
-    private String description;
-    private String developer;
+    private @NonNull String appId;
+    private @NonNull String appName;
+    private @NonNull String description;
+    private @NonNull String developer;
     private double averageRating;
     private List<Review> reviews;
 
-    // Constructors, getters, setters, and additional methods
 }
