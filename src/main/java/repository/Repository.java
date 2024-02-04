@@ -1,6 +1,8 @@
 package repository;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import model.App;
 import model.Review;
 import model.User;
@@ -8,6 +10,8 @@ import model.User;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+@Getter
 @AllArgsConstructor
 public class Repository {
     private final Map<String, App> appList;
@@ -19,4 +23,6 @@ public class Repository {
         this.userMap = new HashMap<>();
         this.appReviews = new HashMap<>();
     }
+
+
 }
